@@ -1,10 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, PermissionsAndroid } from 'react-native';
+
+
+// Android Bluetooth Permission
+async function requestLocationPermission() {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+      {
+        title: "Location permission for bluetooth scanning",
+        message:
+          "Grant location permission to allow the app to scan for Bluetooth devices",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK",
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("Location permission for bluetooth scanning granted");
+    } else {
+      console.log("Location permission for bluetooth scanning denied");
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+requestLocationPermission();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>This bobo don tire!</Text>
+      <Button title='Click to scan for device' />
+      <Button title='Vibrate' />
       <StatusBar style="auto" />
     </View>
   );
@@ -16,5 +45,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10
   },
 });
