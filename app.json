@@ -1,6 +1,9 @@
 {
   "expo": {
     "name": "TestBlue",
+    "plugins": [
+      "@config-plugins/react-native-ble-plx"
+    ],
     "slug": "TestBlue",
     "version": "1.0.0",
     "orientation": "portrait",
