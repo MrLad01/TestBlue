@@ -1,6 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, PermissionsAndroid } from 'react-native';
+import { BleManager } from 'react-native-ble-plx';
 
+
+
+
+export const manager = new BleManager();
+console.log(manager);
+manager.destroy();
 
 // Android Bluetooth Permission
 async function requestLocationPermission() {
@@ -31,7 +38,7 @@ requestLocationPermission();
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>This bobo don tire!</Text>
+      <Text>This bobo don tire chai!</Text>
       <Button title='Click to scan for device' />
       <Button title='Vibrate' />
       <StatusBar style="auto" />

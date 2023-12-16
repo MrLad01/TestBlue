@@ -2,7 +2,8 @@
   "expo": {
     "name": "TestBlue",
     "plugins": [
-      "@config-plugins/react-native-ble-plx"
+      "@config-plugins/react-native-ble-plx",
+      "react-native-ble-plx"
     ],
     "slug": "TestBlue",
     "version": "1.0.0",
@@ -24,7 +25,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
